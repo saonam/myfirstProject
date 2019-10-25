@@ -1,0 +1,19 @@
+pipeline {
+  agent {
+    node {
+      label 'slave_tuantq'
+      customWorkspace '/home/tuantq'
+    }
+  }
+  environment {
+    FRONTEND_GIT = 'https://github.com/saonam/myfirstProject.git'
+    FRONTEND_BRANCH = 'master'
+  }
+  stages {
+    stage('Build Android') {
+      steps {
+        sh 'echo "test jenkins" > /tmp/jenkins.txt'
+      }
+    }
+  }
+}
