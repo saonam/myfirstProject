@@ -2,7 +2,6 @@ pipeline {
   agent {
     node {
       label 'slave_tuantq'
-      customWorkspace '/home/tuantq'
     }
   }
   environment {
