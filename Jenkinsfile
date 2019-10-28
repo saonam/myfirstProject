@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Build Android') {
       steps {
-        sh 'echo "test jenkins" > /tmp/jenkins.txt'
+        sh 'echo "test jenkins moi" > /tmp/jenkins.txt'
       }
     }
   }
