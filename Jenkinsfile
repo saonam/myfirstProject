@@ -10,8 +10,25 @@ pipeline {
   }
   stages {
     stage('Build Android') {
+      agent {
+        docker {
+          image 'saonam/jenkins_android'
+        }
+      }
       steps {
-        sh 'echo "test jenkins moi" > /tmp/jenkins.txt'
+        git(url: FRONTEND_GIT, branch: FRONTEND_BRANCH)
+        sh 'cd android && ./grealew assembleRelease'
+        sh 'echo "test jenkins build android" > /tmp/jenkins.txt'
+        stash(name: 'frontend', includes: 'app/build/outputs/apk/release/**')
+      }
+    }
+    stage('Signing APK') {
+      steps {
+        dir("frontend") {
+            unstash "frontend"
+        }
+
+        sh 'ls -l > /tmp/jenkins_tmp.txt'
       }
     }
   }

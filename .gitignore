@@ -32,7 +32,6 @@ local.properties
 
 # node.js
 #
-node_modules/
 npm-debug.log
 yarn-error.log
 
@@ -51,6 +50,8 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+android/app/build
+android/build
 
 # Bundle artifact
 *.jsbundle
