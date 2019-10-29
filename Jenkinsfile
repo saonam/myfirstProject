@@ -17,7 +17,7 @@ pipeline {
       }
       steps {
         git(url: FRONTEND_GIT, branch: FRONTEND_BRANCH)
-        sh 'cd android && ./grealew assembleRelease'
+        sh 'cd android && ./gradlew assembleRelease'
         sh 'echo "test jenkins build android" > /tmp/jenkins.txt'
         stash(name: 'frontend', includes: 'app/build/outputs/apk/release/**')
       }
