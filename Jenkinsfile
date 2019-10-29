@@ -12,7 +12,7 @@ pipeline {
     stage('Build Android') {
       agent {
         docker {
-          image 'saonam/jenkins_android'
+          image 'saonam/jenkins_android:v1'
         }
       }
       steps {
